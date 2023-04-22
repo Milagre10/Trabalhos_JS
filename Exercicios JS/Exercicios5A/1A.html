@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exemplo de Mudança de Cor de Fundo</title>
+    <style>
+        /* Estilizações padrão para o elemento div */
+        
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myDiv" onmouseover="changeBackgroundColor()"></div>
+
+    <script>
+        var colors = ["red", "green", "black", "blue"]; // lista de cores
+        var currentIndex = 0; // índice da cor atual
+
+        function changeBackgroundColor() {
+            var div = document.getElementById("myDiv");
+            div.style.backgroundColor = colors[currentIndex]; // define a próxima cor de fundo
+
+            currentIndex = (currentIndex + 1) % colors.length; // atualiza o índice para a próxima cor na lista
+        }
+    </script>
+
+</body>
+
+</html>

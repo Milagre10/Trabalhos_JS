@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário</title>
+    <style>
+        input {
+            display: block;
+            margin: 10px;
+        }
+        
+        .invalid {
+            border: 2px solid red;
+        }
+        
+        .valid {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="lastName">Apelido:</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <label for="firstName">Nome:</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="birthDate">Data de Nascimento:</label>
+        <input type="date" id="birthDate" name="birthDate">
+
+
+        <label for="gender">Sexo:</label>
+        <label>Gênero:</label><br>
+        <label for="male">Masculino</label>
+        <input type="radio" id="male" name="gender" value="M">
+        <label for="female">Feminino</label>
+        <input type="radio" id="female" name="gender" value="F"><br>
+        <label for="prov-nasc">Província de Nascimento:</label>
+        <select id="prov-nasc" name="prov-nasc">
+			<option value=""></option>
+			<option value="Maputo">Maputo</option>
+			<option value="Gaza">Gaza</option>
+			<option value="Inhambane">Inhambane</option>
+			<option value="Sofala">Sofala</option>
+			<option value="Manica">Manica</option>
+		</select><br><br>
+
+        <label for="observation">Observação:</label>
+
+        <textarea id="observation" name="observation"></textarea>
+
+        <input type="button" value="Enviar" onclick="validateForm()">
+    </form>
+
+    <script>
+        function validateForm() {
+            let form = document.getElementById("myForm");
+            let elements = form.elements;
+
+            let valid = true;
+
+            for (let i = 0; i < elements.length; i++) {
+                if (elements[i].value === "") {
+                    elements[i].classList.add("invalid");
+                    valid = false;
+                } else {
+                    elements[i].classList.remove("invalid");
+                    elements[i].classList.add("valid");
+                }
+                if (elements[i].value == "") {
+                    firstName.style.borderColor = "red";
+                }
+            }
+
+            if (!valid) {
+                alert("Existem campos vazios.");
+            }
+        }
+    </script>
+</body>
+
+</html>
